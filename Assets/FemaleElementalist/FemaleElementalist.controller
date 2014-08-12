@@ -8,13 +8,13 @@ AnimatorController:
   m_Name: FemaleElementalist
   serializedVersion: 2
   m_AnimatorParameters:
-  - m_Name: Speed
+  - m_Name: Status
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
-  - m_Name: Status
+  - m_Name: Speed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -37,26 +37,33 @@ BlendTree:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Speed
+  m_Name: Blend Tree
   m_Childs:
-  - m_Motion: {fileID: 7400042, guid: e8d7160c571952a46a2955a6c7a87adc, type: 3}
-    m_Threshold: .100000001
+  - m_Motion: {fileID: 7400000, guid: 5f0214f2f6567614894a7c42eadc49b6, type: 3}
+    m_Threshold: -1
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.19789505
     m_CycleOffset: .5
     m_IsAnim: 1
     m_Mirror: 1
-  - m_Motion: {fileID: 7400044, guid: e8d7160c571952a46a2955a6c7a87adc, type: 3}
-    m_Threshold: .5
+  - m_Motion: {fileID: 7400000, guid: 0d6726403a293c14587013584d5f62c9, type: 3}
+    m_Threshold: 0
     m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: .751650929
+    m_CycleOffset: .5
+    m_IsAnim: 1
+    m_Mirror: 1
+  - m_Motion: {fileID: 7400002, guid: 5f0214f2f6567614894a7c42eadc49b6, type: 3}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1.19789505
     m_CycleOffset: .5
     m_IsAnim: 1
     m_Mirror: 1
   m_BlendParameter: Status
-  m_BlendParameterY: New Float
-  m_MinThreshold: .100000001
-  m_MaxThreshold: .5
+  m_BlendParameterY: Status
+  m_MinThreshold: -1
+  m_MaxThreshold: 1
   m_UseAutomaticThresholds: 0
   m_BlendType: 0
 --- !u!206 &20665213
@@ -93,35 +100,35 @@ Transition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_SrcState: {fileID: 110200000}
-  m_DstState: {fileID: 110209841}
-  m_TransitionDuration: .101351351
+  m_DstState: {fileID: 110236704}
+  m_TransitionDuration: 7.44908619
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Status
-    m_EventTreshold: .100000001
-    m_ExitTime: .89864862
-  m_Atomic: 0
+    m_ConditionEvent: Speed
+    m_EventTreshold: .5
+    m_ExitTime: 0
+  m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110174859
+--- !u!1101 &110148041
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110209841}
+  m_SrcState: {fileID: 110236704}
   m_DstState: {fileID: 110200000}
-  m_TransitionDuration: .11999999
-  m_TransitionOffset: .359144986
+  m_TransitionDuration: .318508059
+  m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Status
-    m_EventTreshold: .100000001
+    m_ConditionEvent: Speed
+    m_EventTreshold: .0500000007
     m_ExitTime: .879999995
-  m_Atomic: 1
+  m_Atomic: 0
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
@@ -130,28 +137,28 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CombatModeA
-  m_Speed: 3.45000005
+  m_Name: Idle
+  m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400002, guid: e8d7160c571952a46a2955a6c7a87adc, type: 3}
+  - {fileID: 7400048, guid: e8d7160c571952a46a2955a6c7a87adc, type: 3}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 120, y: 0, z: 0}
+  m_Position: {x: 72, y: -12, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110209841
+--- !u!1102 &110236704
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Move
+  m_Name: Locomotion
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 20600000}
   m_ParentStateMachine: {fileID: 110700000}
-  m_Position: {x: 120, y: -108, z: 0}
+  m_Position: {x: 72, y: -156, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -165,18 +172,21 @@ StateMachine:
   m_DefaultState: {fileID: 110200000}
   m_States:
   - {fileID: 110200000}
-  - {fileID: 110209841}
+  - {fileID: 110236704}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110209841}
-      second:
-      - {fileID: 110174859}
+      first: {fileID: 0}
+      second: []
     data:
       first: {fileID: 110200000}
       second:
       - {fileID: 110100000}
+    data:
+      first: {fileID: 110236704}
+      second:
+      - {fileID: 110148041}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: -96, y: -84, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
